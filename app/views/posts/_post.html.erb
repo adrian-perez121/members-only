@@ -1,6 +1,12 @@
 <h2><%= post.title %></h2>
 
-<h3>Post by: <%= post.user.name %></h3>
+<h3>Post by:
+<% if user_signed_in? %>
+    <span> <%= post.user.name %></span>
+  <% else %>
+  <span><%= link_to "Sign In", new_user_session_path %> to find out who wrote this!</span>
+  <% end %>
+</h3>
 
 <p>
   <%= post.body %>
