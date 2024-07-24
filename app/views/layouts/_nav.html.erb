@@ -1,0 +1,12 @@
+<%= link_to "Home", posts_path %>
+<% if !user_signed_in? %>
+  <div>
+    <%= link_to 'Sign In', new_user_session_path%>
+    <%= link_to 'Register', new_user_registration_path %>
+  </div>
+<% else %>
+  <div>
+    <%= link_to "Profile", edit_user_registration_path %>
+    <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %>
+  </div>
+<% end %>
